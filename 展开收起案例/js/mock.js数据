@@ -1,0 +1,21 @@
+在项目的根路径下
+npm(cnpm) install mockjs --save
+在src目录下创建mock.js文件
+
+
+
+mock.js内容看具体文件的写法里面有相关的注释说明
+
+
+
+2.使用模拟数据
+在想要使用模拟数据的组件内，并且引入创建的mockjs文件
+import data from './../mock' 
+在组件的生命周期函数 created 内 
+直接console.log(data) 打印出data即可  
+同样也可以直接赋值给 data里已经定义好的数组变量
+data(){
+    return {
+
+    }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="js/vue.js"></script>
+    <div id="app">
+        <div v-for="(item,index) in list">
+            <p @click='itemClick(item)'>
+                {{item.title}}
+            </p>
+
+
+            <ul v-show="item.flag">
+                <li v-for="(items,indexs) in item.child">
+                    {{items}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                list: [{
+                    title: "UI",
+                    child: ['前端', '后台', '大数据'],
+                    flag: true,
+                }, {
+                    title: "UIAD",
+                    child: ['前端', '后台', '大数据'],
+                    flag: true,
+                }, {
+                    title: "AD",
+                    child: ['前端', '后台', '大数据'],
+                    flag: true,
+                }]
+            },
+            methods: {
+                itemClick(item) {
+                    item.flag = !item.flag
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

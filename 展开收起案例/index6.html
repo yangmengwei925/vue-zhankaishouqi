@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-for="(item,index) in list">
+            <div @click="itemClick(item)">
+                {{item.title}}
+            </div>
+
+            <div v-show="item.flag">
+                <div v-for="(items,indexs) in item.child">
+                    {{items}}
+                </div>
+            </div>
+            <!-- <div v-show="item.flg">
+                <div v-for="(ites,inds) in items.child">
+                    {{ites}}
+                </div>
+
+            </div> -->
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                list: [{
+                    title: 1,
+                    child: ["有家一起回"],
+                    tit: [1, 2, 4, 5],
+                    flg: true,
+                    flag: true
+                }, {
+                    title: 2,
+                    child: ["有", "家", "一", "起", "回"],
+                    tit: [1, 2, 4, 5],
+                    flg: true,
+                    flag: true
+                }]
+            },
+            methods: {
+                itemClick(item) {
+                    item.flag = !item.flag;
+                },
+                iteClick(ite) {
+                    ite.flg = !ite.flg
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

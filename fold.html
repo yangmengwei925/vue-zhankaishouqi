@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-for="(item, index) in list">
+            <p @click="itemClick(item)">{{item.title}}</p>
+            <ul v-show="item.flag">
+                <li  v-for="(items, indexs) in item.child">{{items}}</li>
+            </ul>
+        </div>
+    </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    list: [
+                        {
+                            title: '第一条标题',
+                            child: [1111, 2222, 3333],
+                            flag: true
+                        },
+                        {
+                            title: '第二条标题',
+                            child: [4444, 5555, 6666],
+                            flag: true
+                        },
+                        {
+                            title: '第三条标题',
+                            child: [7777, 8888, 9999],
+                            flag: true
+                        }
+                    ]
+                },
+                methods: {
+                    itemClick(item) {
+                        item.flag = !item.flag
+                    }
+                }
+            })
+        </script>
+        
+</body>
+</html>
